@@ -60,7 +60,7 @@ BUILD IMAGE :
 docker build -t keylane-assignment:v0.0.1
 
 RUN THE IMAGE USING ARGS
-docker run -it keylane-assignment:v0.0.1 2 2 3
+docker run keylane-assignment:v0.0.1 2 2 3
 
 RUN THE IMAGE IN AN INTERACTIVE MODE
 docker run -it keylane-assignment:v0.0.1 
