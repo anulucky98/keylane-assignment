@@ -1,4 +1,4 @@
-package org.keylane.model;
+package org.keylane.triangleclassifier.model;
 
 public enum TriangleType {
     EQUILATERAL("Equilateral", "All sides are equal"),

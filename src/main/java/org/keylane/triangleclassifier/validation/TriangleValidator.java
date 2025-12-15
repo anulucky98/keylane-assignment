@@ -1,19 +1,19 @@
-package org.keylane.util;
+package org.keylane.triangleclassifier.validation;
 
-import org.keylane.exception.InvalidTriangleException;
+import org.keylane.triangleclassifier.exception.InvalidTriangleException;
 
 public class TriangleValidator {
-    public void validate(double sideA, double sideB, double sideC)
+    public static void validate(double sideA, double sideB, double sideC)
             throws InvalidTriangleException {
 
         validateTriangleSide(sideA, "Side A");
         validateTriangleSide(sideB, "Side B");
         validateTriangleSide(sideC, "Side C");
 
-        validateTriangleInequality(sideA, sideB, sideC);
+        validateTriangleInequalityRule(sideA, sideB, sideC);
     }
 
-    private void validateTriangleSide(double side, String sideName)
+    private static void validateTriangleSide(double side, String sideName)
             throws InvalidTriangleException {
 
         if (Double.isNaN(side)) {
@@ -25,14 +25,14 @@ public class TriangleValidator {
         }
 
         if (side <= 0) {
-            throw new InvalidTriangleException(sideName + "must be greater than zero. Got: " + side);
+            throw new InvalidTriangleException(String.format("%s must be greater than zero. Got: %.2f" ,sideName, side));
         }
     }
 
     /**
      * Validates if the sum of any two sides is greater than the third side.
      */
-    private void validateTriangleInequality(double sideA, double sideB, double sideC)
+    private static void validateTriangleInequalityRule(double sideA, double sideB, double sideC)
             throws InvalidTriangleException {
 
         if (sideA + sideB <= sideC) {
@@ -42,12 +42,12 @@ public class TriangleValidator {
 
         if (sideA + sideC <= sideB) {
             throw new InvalidTriangleException(
-                    String.format("Triangle inequality violated. \n SideA(%.2f) + Side C(%.2f) must be > %.2f", sideA, sideC, sideB));
+                    String.format("Triangle inequality violated. \n SideA(%.2f) + SideC(%.2f) must be > %.2f", sideA, sideC, sideB));
         }
 
         if (sideB + sideC <= sideA) {
             throw new InvalidTriangleException(
-                    String.format("Triangle inequality violated. \n SideB(%.2f) + Side C(%.2f) must be > %.2f", sideB, sideC, sideA));
+                    String.format("Triangle inequality violated. \n SideB(%.2f) + SideC(%.2f) must be > %.2f", sideB, sideC, sideA));
         }
     }
 }

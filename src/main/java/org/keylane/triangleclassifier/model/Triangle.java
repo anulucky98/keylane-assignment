@@ -1,4 +1,4 @@
-package org.keylane.model;
+package org.keylane.triangleclassifier.model;
 
 import java.util.Objects;
 

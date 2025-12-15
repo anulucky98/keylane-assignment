@@ -1,17 +1,11 @@
-package org.keylane.service;
+package org.keylane.triangleclassifier.service;
 
-import org.keylane.exception.InvalidTriangleException;
-import org.keylane.model.Triangle;
-import org.keylane.model.TriangleType;
-import org.keylane.util.TriangleValidator;
+import org.keylane.triangleclassifier.exception.InvalidTriangleException;
+import org.keylane.triangleclassifier.model.Triangle;
+import org.keylane.triangleclassifier.model.TriangleType;
+import org.keylane.triangleclassifier.validation.TriangleValidator;
 
 public class TriangleClassifier {
-
-    private final TriangleValidator validator;
-
-    public TriangleClassifier() {
-        this.validator = new TriangleValidator();
-    }
 
     public TriangleType classify(Triangle triangle) throws InvalidTriangleException {
         if (triangle == null) {
@@ -20,9 +14,9 @@ public class TriangleClassifier {
 
         double sideA = triangle.getSideA();
         double sideB = triangle.getSideB();
-        double sideC = triangle. getSideC();
+        double sideC = triangle.getSideC();
 
-        validator.validate(sideA, sideB, sideC);
+        TriangleValidator.validate(sideA, sideB, sideC);
 
         boolean abEqual = (sideA == sideB);
         boolean bcEqual = (sideB == sideC);
