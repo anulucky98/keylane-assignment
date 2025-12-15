@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.keylane.triangleclassifier.exception.InvalidTriangleException;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -50,7 +49,7 @@ class TriangleClassifierAppTest {
             "5,5,3,ISOSCELES",
             "3,4,5,SCALENE"
     })
-    void testRunWithArgs(double sideA, double sideB, double sideC, String expectedType) throws InvalidTriangleException {
+    void testRunWithArgs(double sideA, double sideB, double sideC, String expectedType) {
         TriangleClassifierApp app = new TriangleClassifierApp();
         String[] args = {String.valueOf(sideA), String.valueOf(sideB), String.valueOf(sideC)};
         app.runWithArgs(args);
