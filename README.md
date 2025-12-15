@@ -57,7 +57,7 @@ All sides are equal
 ### 4. Run with Docker
 ```
 BUILD IMAGE :
-docker build -t keylane-assignment:v0.0.1
+docker build . -t keylane-assignment:v0.0.1
 
 RUN THE IMAGE USING ARGS
 docker run keylane-assignment:v0.0.1 2 2 3
